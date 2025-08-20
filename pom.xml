@@ -177,26 +177,28 @@
                             <configuration>
                                 <rules>
                                     <rule>
-                                        <element>CLASS</element>
+                                        <element>CLASS</element> <!-- 针对「类」整体的覆盖率检查 -->
                                         <limits>
+                                            <!-- 行覆盖率要求 -->
                                             <limit>
-                                                <counter>LINE</counter>
-                                                <value>COVEREDRATIO</value>
-                                                <minimum>80%</minimum>
+                                                <counter>LINE</counter> <!-- 统计单位：代码行 -->
+                                                <value>COVEREDRATIO</value> <!-- 统计方式：已覆盖行数 / 总行数 -->
+                                                <minimum>80%</minimum> <!-- 最低要求：行覆盖率 ≥ 80% -->
                                             </limit>
+                                            <!-- 分支覆盖率要求 -->
                                             <limit>
-                                                <counter>BRANCH</counter>
-                                                <value>COVEREDRATIO</value>
-                                                <minimum>70%</minimum>
+                                                <counter>BRANCH</counter> <!-- 统计单位：代码分支（如 if/else、switch 等） -->
+                                                <value>COVEREDRATIO</value> <!-- 统计方式：已覆盖分支 / 总分支数 -->
+                                                <minimum>70%</minimum> <!-- 最低要求：分支覆盖率 ≥ 70% -->
                                             </limit>
                                         </limits>
                                     </rule>
                                     <rule>
-                                        <element>METHOD</element>
+                                        <element>METHOD</element> <!-- 针对「单个方法」的覆盖率检查 -->
                                         <limits>
                                             <limit>
-                                                <counter>LINE</counter>
-                                                <minimum>75%</minimum>
+                                                <counter>LINE</counter> <!-- 统计单位：代码行 -->
+                                                <minimum>75%</minimum> <!-- 最低要求：单个方法的行覆盖率 ≥ 75% -->
                                             </limit>
                                         </limits>
                                     </rule>
