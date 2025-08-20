@@ -119,6 +119,21 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version> <!-- 兼容 Java 21 的版本 -->
+                    <configuration>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <release>${maven.compiler.release}</release>
+                        <!-- 显式启用批注处理，消除警告 -->
+                        <compilerArgs>
+                            <arg>-proc:full</arg> <!-- 明确指定启用完整批注处理 -->
+                            <arg>-Xlint:-options</arg> <!-- 可选：隐藏此警告 -->
+                        </compilerArgs>
+                    </configuration>
+                </plugin>
                 <!-- 单元测试执行插件 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -127,11 +142,9 @@
                     <configuration>
                         <failIfNoTests>true</failIfNoTests>
                         <forkCount>1</forkCount>
-                        <argLine>--add-opens java.base/java.lang=ALL-UNNAMED</argLine>
-                        <!-- 排除指定测试类/方法 -->
-                        <!-- <excludes>
-                            <exclude>**/*IntegrationTest.java</exclude>
-                        </excludes> -->
+                        <!-- 关键：引用 Jacoco 生成的 argLine 参数（包含 -javaagent） -->
+                        <argLine>${argLine} --add-opens java.base/java.lang=ALL-UNNAMED</argLine>
+                        <!-- 保留其他配置 -->
                     </configuration>
                 </plugin>
 
@@ -143,6 +156,7 @@
                     <executions>
                         <execution>
                             <id>prepare-agent</id>
+                            <phase>process-test-classes</phase> <!-- 测试类编译后，执行测试前 -->
                             <goals>
                                 <goal>prepare-agent</goal>
                             </goals>
@@ -202,6 +216,10 @@
         </pluginManagement>
 
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
