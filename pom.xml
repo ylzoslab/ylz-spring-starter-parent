@@ -119,6 +119,7 @@
     <build>
         <pluginManagement>
             <plugins>
+                <!-- 编译插件 -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
@@ -187,7 +188,8 @@
                                             </limit>
                                             <!-- 分支覆盖率要求 -->
                                             <limit>
-                                                <counter>BRANCH</counter> <!-- 统计单位：代码分支（如 if/else、switch 等） -->
+                                                <counter>BRANCH</counter> <!-- 统计单位：代码分支（如
+                                                if/else、switch 等） -->
                                                 <value>COVEREDRATIO</value> <!-- 统计方式：已覆盖分支 / 总分支数 -->
                                                 <minimum>70%</minimum> <!-- 最低要求：分支覆盖率 ≥ 70% -->
                                             </limit>
@@ -229,6 +231,10 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
