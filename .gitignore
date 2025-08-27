@@ -1,0 +1,74 @@
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+*.iml
+.idea/
+.project
+.classpath
+.settings/
+bin/
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# STS (Spring Tool Suite)
+.metadata/
+
+# Log files
+*.log
+logs/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Sensitive files
+src/main/resources/application*.properties.bak
+src/main/resources/application*.yml.bak
+*.jks
+*.p12
+*.key
+*.pem
+*.crl
+*.csr
+*.cer
+*.crt
+*.der
+*.p7b
+*.p7c
+*.p8
+*.pfx
+*.srl
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Other
+*.bak
+*.swp
+*~
