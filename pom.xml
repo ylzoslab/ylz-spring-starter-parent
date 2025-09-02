@@ -23,7 +23,7 @@
         <maven.compiler.release>21</maven.compiler.release>
         <lombok.version>1.18.30</lombok.version>
         <asm.version>9.5</asm.version>
-        <jwt.version>4.0.0</jwt.version>
+        <jwt.version>4.4.0</jwt.version>
         <springdoc.version>2.1.0</springdoc.version>
         <springcloud.version>2021.0.5</springcloud.version>
         <mysql.driver.version>8.0.33</mysql.driver.version>
